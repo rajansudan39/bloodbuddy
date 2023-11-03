@@ -174,6 +174,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   height: 10,
                 ),
                 CSCPicker(
+                  defaultCountry: CscCountry.India,
+                  currentCity: userData.city,
+                  currentState: userData.state,
                   onCountryChanged: (value) {
                     setState(() {
                       // userData. = value;
