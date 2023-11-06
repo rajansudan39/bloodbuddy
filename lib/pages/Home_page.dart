@@ -42,13 +42,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Blood Buddy",
-        ),
-        backgroundColor: Colors.red,
-      ),
+      // appBar: AppBar(
+      //     // centerTitle: true,
+      //     // title: Text(
+      //     //   "Blood Buddy",
+      //     // ),
+      //     // backgroundColor: Colors.red,
+      //     ),
       drawer: MyDrawer(
         onProfileTap: () {
           goToProfilePage(context);
@@ -56,88 +56,63 @@ class _HomePageState extends State<HomePage> {
         onSignOut: signUserOut,
         // onSignOut: signOut,
       ),
-      // body: Center(
-      //   child: Text(
-      //     'LOGGED IN AS : ' + user.email!,
-      //     style: TextStyle(
-      //       fontSize: 20,
-      //     ),
-      //   ),
-      // ),
 
-      // code for carousel
+      //bottom naviagtion bar
 
-      // body: ListView(
-      //   children: [
-      //     SizedBox(
-      //       height: 200,
-      //       child: InfiniteCarousel.builder(
-      //         itemCount: 10,
-      //         itemExtent: 200,
-      //         center: true,
-      //         anchor: 0.0,
-      //         velocityFactor: 0.2,
-      //         onIndexChanged: (index) {},
-      //         controller: controller,
-      //         axisDirection: Axis.horizontal,
-      //         loop: true,
-      //         itemBuilder: (context, itemIndex, realIndex) {
-      //           return Container(
-      //             margin: EdgeInsets.symmetric(
-      //               horizontal: 10,
-      //               vertical: 10,
-      //             ),
-      //             decoration: BoxDecoration(
-      //               // color: Colors.yellow,
-      //               borderRadius: BorderRadius.circular(20),
-      //               image: DecorationImage(
-      //                 fit: BoxFit.fill,
-      //                 image: NetworkImage(
-      //                   "https://th.bing.com/th/id/OIP.96pE9_DfC28g2hnGl_fnFQHaHa?pid=ImgDet&rs=1",
-      //                 ),
-      //               ),
-      //             ),
-      //           );
-      //         },
+      // bottomNavigationBar: BottomNavigationBar(
+      //   // backgroundColor: Colors.black,
+      //   fixedColor: Colors.red[500],
+      //   currentIndex: currentIndex,
+      //   items: [
+      //     const BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.home,
       //       ),
-      //     )
+      //       label: "Home",
+      //     ),
+      //     const BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.search,
+      //       ),
+      //       label: "Explore",
+      //     ),
+      //     const BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.bookmark_border,
+      //       ),
+      //       label: "Saved",
+      //     ),
       //   ],
+      //   onTap: (value) {
+      //     setState(() {
+      //       currentIndex = value;
+      //     });
+      //   },
       // ),
-      bottomNavigationBar: BottomNavigationBar(
-        // backgroundColor: Colors.black,
-        fixedColor: Colors.red,
-        currentIndex: currentIndex,
-        items: [
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
-            label: "Home",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-            ),
-            label: "Explore",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.bookmark_border,
-            ),
-            label: "Saved",
-          ),
-          // const BottomNavigationBarItem(
-          //   icon: Icon(
-          //     Icons.settings,
-          //   ),
-          //   label: "Settings",
-          // ),
-        ],
-        onTap: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
+      backgroundColor: Colors.grey[300],
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            //app bar
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50.0),
+              child: Row(
+                children: [
+                  Text('Hello, '),
+                ],
+              ),
+            )
+
+            //card-> how do you feel?
+
+            //search bar
+
+            //horizontal list view -> categories: blood , hospital , blood bank etc.
+
+            // doctor list
+          ],
+        ),
       ),
     );
   }

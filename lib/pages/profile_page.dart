@@ -37,33 +37,9 @@ class _ProfilePageState extends State<ProfilePage> {
         title: Text(
           "Profile Page",
         ),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.red[400],
       ),
-      body: ListView(
-        children: [
-          Container(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Username: JohnDoe",
-                  style: TextStyle(fontSize: 18),
-                ),
-                Text(
-                  "Email: john.doe@example.com",
-                  style: TextStyle(fontSize: 18),
-                ),
-                Text(
-                  "Address: 123 Main St, City, Country",
-                  style: TextStyle(fontSize: 18),
-                ),
-                // Add more user details here
-              ],
-            ),
-          ),
-        ],
-      ),
+      body: ListView(),
     );
   }
 }
