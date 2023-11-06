@@ -39,6 +39,7 @@ dependencies:
   firebase_core: ^2.19.0
   firebase_auth: ^4.11.1
   infinite_carousel: ^1.0.3
+  csc_picker: ^0.2.7
 
 dev_dependencies:
   flutter_test:
