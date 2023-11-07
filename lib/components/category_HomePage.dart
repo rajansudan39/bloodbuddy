@@ -11,19 +11,19 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0),
+      padding: const EdgeInsets.only(left: 25.0),
       child: Container(
         padding:
-            EdgeInsets.symmetric(vertical: 8, horizontal: 10), //original 20
+            EdgeInsets.symmetric(vertical: 10, horizontal: 15), //original 20
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.deepPurple[100],
+          color: Colors.deepPurple[50],
         ),
         child: Row(
           children: [
             Icon(
               icon,
-              size: 40,
+              size: 50,
             ),
             SizedBox(width: 10),
             Text(categoryName),

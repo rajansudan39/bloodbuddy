@@ -4,8 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
+import 'package:lottie/lottie.dart';
 import 'package:modernlogintute/components/Drawer.dart';
 import 'package:modernlogintute/components/category_HomePage.dart';
+import 'package:modernlogintute/pages/Campaigns_card.dart';
 import 'package:modernlogintute/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -107,34 +109,34 @@ class _HomePageState extends State<HomePage> {
         // crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           //app bar
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25.0),
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 4),
-                    Text(
-                      'Hello',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      'Rajan Sudan',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.symmetric(horizontal: 25.0),
+          //   child: Row(
+          //     children: [
+          //       Column(
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: [
+          //           SizedBox(height: 4),
+          //           Text(
+          //             'Hello',
+          //             style: TextStyle(
+          //               fontWeight: FontWeight.bold,
+          //               fontSize: 18,
+          //             ),
+          //           ),
+          //           SizedBox(height: 4),
+          //           Text(
+          //             'Rajan Sudan',
+          //             style: TextStyle(
+          //               fontSize: 24,
+          //               fontWeight: FontWeight.bold,
+          //             ),
+          //           )
+          //         ],
+          //       ),
+          //     ],
+          //   ),
+          // ),
           SizedBox(height: 25),
 
           //card-> how do you feel?
@@ -152,7 +154,9 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 100,
                     width: 100,
-                    color: Colors.deepPurple[200],
+                    child: Lottie.network(
+                      'https://cdnl.iconscout.com/lottie/premium/preview-watermark/blood-9844445-8060754.mp4?h=700',
+                    ),
                   ),
                   SizedBox(width: 20),
 
@@ -205,7 +209,7 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               padding: EdgeInsets.all(8), //original was 12
               decoration: BoxDecoration(
-                color: Colors.deepPurple[100],
+                color: Colors.deepPurple[50],
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TextField(
@@ -225,9 +229,7 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               children: [
                 CategoryCard(
-                  icon: Icons.bloodtype_outlined,
-                  categoryName: "Donate",
-                ),
+                    icon: Icons.bloodtype_outlined, categoryName: "Donate"),
                 CategoryCard(
                   icon: Icons.medical_services,
                   categoryName: "Hospital",
@@ -248,7 +250,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Doctor\'s List',
+                  'Campaign\'s List',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -265,7 +267,43 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          SizedBox(height: 25),
+          SizedBox(height: 15),
+          SizedBox(
+            height: 210,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              children: [
+                CampaignCards(
+                  CampaignImagePath:
+                      'https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be',
+                  Rating: '4.8',
+                  CampaignName: 'Blood Matters',
+                ),
+                CampaignCards(
+                  CampaignImagePath:
+                      'https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be',
+                  Rating: '4.8',
+                  CampaignName: 'Blood Matters',
+                ),
+                CampaignCards(
+                  CampaignImagePath:
+                      'https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be',
+                  Rating: '4.8',
+                  CampaignName: 'Blood Matters',
+                ),
+                CampaignCards(
+                  CampaignImagePath:
+                      'https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be',
+                  Rating: '4.8',
+                  CampaignName: 'Blood Matters',
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 50,
+          ),
         ],
       ),
     );

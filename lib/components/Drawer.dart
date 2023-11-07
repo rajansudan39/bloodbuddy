@@ -4,6 +4,7 @@ import 'package:modernlogintute/components/my_list_title.dart';
 class MyDrawer extends StatelessWidget {
   final void Function()? onProfileTap;
   final void Function()? onSignOut;
+
   MyDrawer({
     super.key,
     required this.onProfileTap,
@@ -44,6 +45,15 @@ class MyDrawer extends StatelessWidget {
               ),
             ],
           ),
+
+          //settings
+          //     MyListTile(
+          //       icon: Icons.settings,
+          //       text: 'S E T T I N G S',
+          //       onTap: onSignOut,
+          //     ),
+          //   ],
+          // ),
 
           //logout
           MyListTile(
