@@ -75,7 +75,7 @@ class _ProfilePageState extends State<ProfilePage> {
         title: const Text(
           "Profile Page",
         ),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.deepPurple[300],
       ),
       body: ListView(
         children: [
@@ -84,10 +84,10 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: CircleAvatar(
-                    backgroundColor: Color.fromARGB(255, 238, 122, 114),
+                    backgroundColor: Colors.deepPurple[100],
                     radius: 50,
                     child: Icon(
                       Icons.person,
