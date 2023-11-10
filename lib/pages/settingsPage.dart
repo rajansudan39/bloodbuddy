@@ -45,12 +45,30 @@ class _SettingsPageState extends State<SettingsPage> {
               leading: Icon(Icons.delete),
               onTap: () {
                 //logic
-                // showDialog(context: context,
-                // builder: (BuildContext context){
-                //   return AlertDialog(
-                //     title: Text()),
-
-                //   );
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Confirm Deletion"),
+                        content: Text(
+                            'Are you sure you want to delete your account?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('Cancel'),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              //add logic to delete account permanently
+                              Navigator.of(context).pop();
+                            },
+                            child: Text("Delete"),
+                          ),
+                        ],
+                      );
+                    });
               })
         ]),
       ),
