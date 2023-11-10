@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:modernlogintute/components/Drawer.dart';
 import 'package:modernlogintute/components/category_HomePage.dart';
+import 'package:modernlogintute/models/campaign.dart';
 import 'package:modernlogintute/pages/Campaigns_card.dart';
 import 'package:modernlogintute/pages/profile_page.dart';
 import 'package:modernlogintute/pages/settingsPage.dart';
@@ -17,7 +18,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
-
 
   //sign user out
   void signUserOut() {
@@ -64,15 +64,29 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: const Text(
           "Blood Buddy",
+          // style: TextStyle(
+          //   color: Colors.deepPurple,
+          //   fontWeight: FontWeight.bold,
+          // ),
         ),
         // backgroundColor: Colors.red,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 10),
-            child: CircleAvatar(
-              radius: 20,
-              backgroundImage: NetworkImage(
-                  'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1699250896~exp=1699251496~hmac=256da86a78e0928b9a628c53e4e2c00ad87e9c3af1b932182c797e59ec98fec5'),
+            padding: const EdgeInsets.only(right: 10),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ),
+                );
+              },
+              child: const CircleAvatar(
+                radius: 20,
+                backgroundImage: NetworkImage(
+                    'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=740&t=st=1699250896~exp=1699251496~hmac=256da86a78e0928b9a628c53e4e2c00ad87e9c3af1b932182c797e59ec98fec5'),
+              ),
             ),
           ),
         ],
@@ -287,32 +301,14 @@ class _HomePageState extends State<HomePage> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              children: [
-                CampaignCards(
-                  CampaignImagePath:
-                      'https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be',
-                  Rating: '4.8',
-                  CampaignName: 'Blood Matters',
+              children: List.generate(
+                campaigns.length,
+                (index) => CampaignCards(
+                  CampaignImagePath: campaigns[index].image,
+                  Rating: campaigns[index].rating,
+                  CampaignName: campaigns[index].name,
                 ),
-                CampaignCards(
-                  CampaignImagePath:
-                      'https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be',
-                  Rating: '4.8',
-                  CampaignName: 'Blood Matters',
-                ),
-                CampaignCards(
-                  CampaignImagePath:
-                      'https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be',
-                  Rating: '4.8',
-                  CampaignName: 'Blood Matters',
-                ),
-                CampaignCards(
-                  CampaignImagePath:
-                      'https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be',
-                  Rating: '4.8',
-                  CampaignName: 'Blood Matters',
-                ),
-              ],
+              ),
             ),
           ),
           const SizedBox(
@@ -323,3 +319,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+List<String> imageList = [
+  "https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be",
+];
+
+List<String> titleList = [
+  "Blood Matters",
+];
+
+List<String> ratingList = [
+  "4.8",
+];

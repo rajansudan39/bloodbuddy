@@ -1,29 +1,6 @@
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
-
-class UserData {
-  String name;
-  String email;
-  String phone;
-  String address;
-  String city;
-  String state;
-  String gender;
-  String bloodGroup;
-  DateTime? dob;
-
-  UserData({
-    this.name = "",
-    this.email = "",
-    this.phone = "",
-    this.address = "",
-    this.city = "",
-    this.state = "",
-    this.gender = "",
-    this.bloodGroup = "",
-    this.dob,
-  });
-}
+import 'package:modernlogintute/models/user_data.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
