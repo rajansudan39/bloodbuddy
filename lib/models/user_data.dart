@@ -20,4 +20,18 @@ class UserData {
     this.bloodGroup = "",
     this.dob,
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      "name": name,
+      "email": email,
+      "phone": phone,
+      "address": address,
+      "city": city,
+      "state": state,
+      "gender": gender,
+      "bloodGroup": bloodGroup,
+      "dob": dob,
+    };
+  }
 }

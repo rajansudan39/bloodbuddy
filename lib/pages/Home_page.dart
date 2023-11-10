@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:bloodbuddy/components/Drawer.dart';
 import 'package:bloodbuddy/components/category_HomePage.dart';
 import 'package:bloodbuddy/models/campaign.dart';
@@ -51,8 +50,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  var controller = InfiniteScrollController();
 
   int currentIndex = 0;
 
@@ -169,7 +166,6 @@ class _HomePageState extends State<HomePage> {
           //   ),
           // ),
           const SizedBox(height: 25),
-
           //card-> how do you feel?
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),

@@ -17,8 +17,8 @@ class CategoryCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 25.0),
       child: Container(
-        padding:
-            EdgeInsets.symmetric(vertical: 10, horizontal: 15), //original 20
+        padding: const EdgeInsets.symmetric(
+            vertical: 10, horizontal: 15), //original 20
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Colors.deepPurple[50],
@@ -31,7 +31,7 @@ class CategoryCard extends StatelessWidget {
                     icon,
                     size: 50,
                   ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(categoryName),
           ],
         ),
