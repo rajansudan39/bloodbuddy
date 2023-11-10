@@ -1,28 +1,6 @@
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
 
-// class ProfilePage extends StatelessWidget {
-//   const ProfilePage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext) {
-//     return Scaffold(
-//       body: Column(
-//         children: [
-//           CircleAvatar(
-//             radius: 50,
-//             child: Icon(
-//               Icons.person,
-//               size: 60,
-//               color: Colors.white,
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
 class UserData {
   String name;
   String email;
