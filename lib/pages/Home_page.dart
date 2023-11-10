@@ -9,6 +9,7 @@ import 'package:modernlogintute/components/Drawer.dart';
 import 'package:modernlogintute/components/category_HomePage.dart';
 import 'package:modernlogintute/pages/Campaigns_card.dart';
 import 'package:modernlogintute/pages/profile_page.dart';
+import 'package:modernlogintute/pages/settingsPage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -35,6 +36,20 @@ class _HomePageState extends State<HomePage> {
       context,
       MaterialPageRoute(
         builder: (context) => const ProfilePage(),
+      ),
+    );
+  }
+
+  //navigate to settings page
+  void goToSettingsPage(BuildContext context) {
+    //pop menu drawer
+    Navigator.pop(context);
+
+    //go to settings page
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SettingsPage(),
       ),
     );
   }
@@ -70,6 +85,10 @@ class _HomePageState extends State<HomePage> {
         },
         onSignOut: signUserOut,
         // onSignOut: signOut,
+        //on settings Tap
+        onSettingsTap: () {
+          goToSettingsPage(context);
+        },
       ),
 
       //bottom naviagtion bar
@@ -152,12 +171,9 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   //animation or cute picture
                   Container(
-                    height: 100,
-                    width: 100,
-                    child: Lottie.network(
-                      'https://cdnl.iconscout.com/lottie/premium/preview-watermark/blood-9844445-8060754.mp4?h=700',
-                    ),
-                  ),
+                      height: 115,
+                      width: 115,
+                      child: Image.asset("assets/animation/animation1.gif")),
                   SizedBox(width: 20),
 
                   //how do you feel + get dtarted button

@@ -4,11 +4,13 @@ import 'package:modernlogintute/components/my_list_title.dart';
 class MyDrawer extends StatelessWidget {
   final void Function()? onProfileTap;
   final void Function()? onSignOut;
+  final void Function()? onSettingsTap;
 
   MyDrawer({
     super.key,
     required this.onProfileTap,
     required this.onSignOut,
+    required this.onSettingsTap,
   });
 
   @override
@@ -29,8 +31,6 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
 
-              //home list title
-
               //profile list title
               MyListTile(
                 icon: Icons.person,
@@ -43,17 +43,13 @@ class MyDrawer extends StatelessWidget {
                 text: "A B O U T  US",
                 onTap: () => Navigator.pop(context),
               ),
+              //settings
+              MyListTile(
+                  icon: Icons.settings,
+                  text: ' S E T T I N G S',
+                  onTap: onSettingsTap),
             ],
           ),
-
-          //settings
-          //     MyListTile(
-          //       icon: Icons.settings,
-          //       text: 'S E T T I N G S',
-          //       onTap: onSignOut,
-          //     ),
-          //   ],
-          // ),
 
           //logout
           MyListTile(
