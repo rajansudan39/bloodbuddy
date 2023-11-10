@@ -1,4 +1,4 @@
-package com.example.modernlogintute
+package com.bloodbuddy.android
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -255,22 +255,23 @@ class _HomePageState extends State<HomePage> {
             height: 80,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: const [
-                CategoryCard(
+              children: [
+                const CategoryCard(
                     icon: Icons.bloodtype_outlined, categoryName: "Donate"),
-                CategoryCard(
+                const CategoryCard(
                   icon: Icons.medical_services,
                   categoryName: "Hospital",
                 ),
                 CategoryCard(
+                  image: Image.asset("assets/images/sperms.png",
+                      height: 30, width: 30),
                   icon: CupertinoIcons.drop,
-                  categoryName: " Drop",
+                  categoryName: " Sperm",
                 )
               ],
             ),
           ),
           const SizedBox(height: 25.0),
-
           // doctor list
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -319,15 +320,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-List<String> imageList = [
-  "https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be",
-];
-
-List<String> titleList = [
-  "Blood Matters",
-];
-
-List<String> ratingList = [
-  "4.8",
-];

@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
   final IconData icon;
+  final Image? image;
   final String categoryName;
+
   const CategoryCard({
+    super.key,
     required this.icon,
     required this.categoryName,
+    this.image,
   });
 
   @override
@@ -21,10 +25,12 @@ class CategoryCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(
-              icon,
-              size: 50,
-            ),
+            image != null
+                ? image!
+                : Icon(
+                    icon,
+                    size: 50,
+                  ),
             SizedBox(width: 10),
             Text(categoryName),
           ],

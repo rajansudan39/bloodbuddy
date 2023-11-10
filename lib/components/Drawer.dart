@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modernlogintute/components/my_list_title.dart';
+import 'package:modernlogintute/pages/about_us.dart';
 
 class MyDrawer extends StatelessWidget {
   final void Function()? onProfileTap;
@@ -41,13 +42,22 @@ class MyDrawer extends StatelessWidget {
               MyListTile(
                 icon: Icons.info,
                 text: "A B O U T  US",
-                onTap: () => Navigator.pop(context),
+                onTap: () {
+                  Navigator.of(context).pop();
+
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const AboutUs(),
+                    ),
+                  );
+                },
               ),
               //settings
               MyListTile(
-                  icon: Icons.settings,
-                  text: ' S E T T I N G S',
-                  onTap: onSettingsTap),
+                icon: Icons.settings,
+                text: ' S E T T I N G S',
+                onTap: onSettingsTap,
+              ),
             ],
           ),
 

@@ -5,7 +5,8 @@ class CampaignCards extends StatelessWidget {
   final String Rating;
   final String CampaignName;
 
-  CampaignCards({
+  const CampaignCards({
+    super.key,
     required this.CampaignImagePath,
     required this.Rating,
     required this.CampaignName,
@@ -16,7 +17,7 @@ class CampaignCards extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 25.0),
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: Colors.deepPurple[50],
           borderRadius: BorderRadius.circular(12),
@@ -31,7 +32,7 @@ class CampaignCards extends StatelessWidget {
                 height: 100,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
             //rating out of 5
             Row(
@@ -42,23 +43,21 @@ class CampaignCards extends StatelessWidget {
                 ),
                 Text(
                   Rating,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
-
+            const SizedBox(height: 10),
             //name of campaign
             Text(
               CampaignName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
             ),
-
             //campaign title
           ],
         ),
