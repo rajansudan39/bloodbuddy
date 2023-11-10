@@ -2,12 +2,12 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:modernlogintute/components/my_button.dart';
-import 'package:modernlogintute/components/my_textfield.dart';
-import 'package:modernlogintute/components/square_tile.dart';
-// import 'package:modernlogintute/components/my_button.dart';
-// import 'package:modernlogintute/components/my_textfield.dart';
-// import 'package:modernlogintute/components/square_tile.dart';
+import 'package:bloodbuddy/components/my_button.dart';
+import 'package:bloodbuddy/components/my_textfield.dart';
+import 'package:bloodbuddy/components/square_tile.dart';
+// import 'package:bloodbuddy/components/my_button.dart';
+// import 'package:bloodbuddy/components/my_textfield.dart';
+// import 'package:bloodbuddy/components/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;

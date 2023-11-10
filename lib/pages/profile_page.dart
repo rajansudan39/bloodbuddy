@@ -1,6 +1,6 @@
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:modernlogintute/models/user_data.dart';
+import 'package:bloodbuddy/models/user_data.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

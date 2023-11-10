@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
-import 'package:modernlogintute/components/Drawer.dart';
-import 'package:modernlogintute/components/category_HomePage.dart';
-import 'package:modernlogintute/models/campaign.dart';
-import 'package:modernlogintute/pages/Campaigns_card.dart';
-import 'package:modernlogintute/pages/profile_page.dart';
-import 'package:modernlogintute/pages/settingsPage.dart';
+import 'package:bloodbuddy/components/Drawer.dart';
+import 'package:bloodbuddy/components/category_HomePage.dart';
+import 'package:bloodbuddy/models/campaign.dart';
+import 'package:bloodbuddy/pages/Campaigns_card.dart';
+import 'package:bloodbuddy/pages/profile_page.dart';
+import 'package:bloodbuddy/pages/settingsPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:modernlogintute/pages/RegisterPage.dart';
-import 'package:modernlogintute/pages/login_page.dart';
-
+import 'package:bloodbuddy/pages/RegisterPage.dart';
+import 'package:bloodbuddy/pages/login_page.dart';
 
 class LoginOrRegisterPage extends StatefulWidget {
   const LoginOrRegisterPage({super.key});
@@ -11,12 +10,11 @@ class LoginOrRegisterPage extends StatefulWidget {
 }
 
 class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
-
   //initially show login page
   bool showLoginPage = true;
 
   //toggle between login and register page
-  void togglePages(){
+  void togglePages() {
     setState(() {
       showLoginPage = !showLoginPage;
     });
@@ -24,12 +22,11 @@ class _LoginOrRegisterPageState extends State<LoginOrRegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    if(showLoginPage){ 
+    if (showLoginPage) {
       return LoginPage(
-        onTap:togglePages,
+        onTap: togglePages,
       );
-    }
-    else{
+    } else {
       return RegisterPage(
         onTap: togglePages,
       );

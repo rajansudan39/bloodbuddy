@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:modernlogintute/components/my_list_title.dart';
-import 'package:modernlogintute/pages/about_us.dart';
+import 'package:bloodbuddy/components/my_list_title.dart';
+import 'package:bloodbuddy/pages/about_us.dart';
 
 class MyDrawer extends StatelessWidget {
   final void Function()? onProfileTap;
