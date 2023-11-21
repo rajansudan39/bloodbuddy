@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CampaignCards extends StatelessWidget {
-  final String CampaignImagePath;
-  final String Rating;
-  final String CampaignName;
+  final String image;
+  final String rating;
+  final String name;
 
   const CampaignCards({
     super.key,
-    required this.CampaignImagePath,
-    required this.Rating,
-    required this.CampaignName,
+    required this.image,
+    required this.rating,
+    required this.name,
   });
 
   @override
@@ -28,8 +28,10 @@ class CampaignCards extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.network(
-                CampaignImagePath,
+                image,
                 height: 100,
+                width: 100,
+                fit: BoxFit.cover,
               ),
             ),
             const SizedBox(height: 10),
@@ -42,7 +44,7 @@ class CampaignCards extends StatelessWidget {
                   color: Colors.yellow[600],
                 ),
                 Text(
-                  Rating,
+                  rating,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
@@ -52,7 +54,7 @@ class CampaignCards extends StatelessWidget {
             const SizedBox(height: 10),
             //name of campaign
             Text(
-              CampaignName,
+              name,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,

@@ -1,40 +1,44 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Campaign {
+  String? id;
   String name;
-  String rating;
+  String description;
+  String? rating;
   String image;
+  DateTime? createdAt;
+  DateTime? updatedAt;
 
-  Campaign({required this.name, required this.rating, required this.image});
+  Campaign({
+    this.id,
+    required this.name,
+    required this.description,
+    this.rating,
+    required this.image,
+    this.createdAt,
+    this.updatedAt,
+  });
+
+  factory Campaign.fromJson(Map<String, dynamic> json, String id) {
+    return Campaign(
+      id: id,
+      name: json['name'],
+      description: json['description'],
+      rating: json['rating'],
+      image: json['image'],
+      createdAt: json['createdAt'].toDate(),
+      updatedAt: json['updatedAt'].toDate(),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'description': description,
+      'rating': rating,
+      'image': image,
+      'createdAt': createdAt != null ? Timestamp.fromDate(createdAt!) : null,
+      'updatedAt': createdAt != null ? Timestamp.fromDate(updatedAt!) : null,
+    };
+  }
 }
-
-List<Campaign> campaigns = [
-  Campaign(
-    name: "Blood matters",
-    rating: "4.8",
-    image:
-        "https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be",
-  ),
-  Campaign(
-    name: "Blood matters",
-    rating: "4.8",
-    image:
-        "https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be",
-  ),
-  Campaign(
-    name: "Blood matters",
-    rating: "4.8",
-    image:
-        "https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be",
-  ),
-  Campaign(
-    name: "Blood matters",
-    rating: "4.8",
-    image:
-        "https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be",
-  ),
-  Campaign(
-    name: "Blood matters",
-    rating: "4.8",
-    image:
-        "https://img.freepik.com/free-vector/flat-vertical-poster-template-world-blood-donor-day_23-2150334098.jpg?w=740&t=st=1699338772~exp=1699339372~hmac=c670531b7ad1719c10bd87748987289470a52238c430f6fafc248003dcea96be",
-  ),
-];

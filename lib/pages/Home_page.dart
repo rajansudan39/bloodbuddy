@@ -1,10 +1,12 @@
+import 'dart:math';
+import 'package:bloodbuddy/service/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bloodbuddy/components/Drawer.dart';
 import 'package:bloodbuddy/components/category_HomePage.dart';
 import 'package:bloodbuddy/models/campaign.dart';
-import 'package:bloodbuddy/pages/Campaigns_card.dart';
+import 'package:bloodbuddy/pages/campaigns_card.dart';
 import 'package:bloodbuddy/pages/profile_page.dart';
 import 'package:bloodbuddy/pages/settingsPage.dart';
 
@@ -17,6 +19,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
+
+  late Future<List<Campaign>> _futureCampaigns;
+
+  void getData() {
+    _futureCampaigns = Database().getCampaigns();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
 
   //sign user out
   void signUserOut() {
@@ -258,12 +272,12 @@ class _HomePageState extends State<HomePage> {
                   icon: Icons.medical_services,
                   categoryName: "Hospital",
                 ),
-                CategoryCard(
-                  image: Image.asset("assets/images/sperms.png",
-                      height: 30, width: 30),
-                  icon: CupertinoIcons.drop,
-                  categoryName: " Sperm",
-                )
+                // CategoryCard(
+                //   image: Image.asset("assets/images/sperms.png",
+                //       height: 30, width: 30),
+                //   icon: CupertinoIcons.drop,
+                //   categoryName: " Sperm",
+                // )
               ],
             ),
           ),
@@ -295,18 +309,28 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 15),
           SizedBox(
             height: 210,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              children: List.generate(
-                campaigns.length,
-                (index) => CampaignCards(
-                  CampaignImagePath: campaigns[index].image,
-                  Rating: campaigns[index].rating,
-                  CampaignName: campaigns[index].name,
-                ),
-              ),
-            ),
+            child: FutureBuilder<List<Campaign>>(
+                future: _futureCampaigns,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    final campaigns = snapshot.data!;
+                    print(campaigns.length);
+                    return ListView(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      children: List.generate(
+                        campaigns.length,
+                        (index) => CampaignCards(
+                          image: campaigns[index].image,
+                          rating: getRating().toString(),
+                          name: campaigns[index].name,
+                        ),
+                      ),
+                    );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                }),
           ),
           const SizedBox(
             height: 50,
@@ -315,4 +339,9 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+int getRating() {
+  //Return random float number between 3 and 5
+  return Random().nextInt(3) + 3;
 }
