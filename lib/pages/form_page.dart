@@ -1,4 +1,5 @@
 import 'package:bloodbuddy/models/user_data.dart';
+import 'package:bloodbuddy/pages/auth_page.dart';
 import 'package:bloodbuddy/service/database.dart';
 import 'package:csc_picker/csc_picker.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,9 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  UserData userData = UserData();
+  UserData userData = UserData(
+    bloodGroup: "A+",
+  );
 
   List<String> bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
@@ -187,6 +190,8 @@ class _FormPageState extends State<FormPage> {
               ),
               onPressed: () async {
                 await Database().createUser(userData);
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => CheckSignUp()));
               },
               child: const Text(
                 "Submit",
