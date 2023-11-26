@@ -36,6 +36,23 @@ class AboutUs extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
+          ListTile(
+            leading: Icon(Icons.mail),
+            title: Text(
+              'rajansudan6@gmail.com',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+            //ontap to be added
+          ),
+          ListTile(
+            leading: Icon(Icons.phone),
+            title: Text(
+              '+91 8494072872',
+              style: TextStyle(fontSize: 20),
+            ),
+          )
         ],
       ),
     );

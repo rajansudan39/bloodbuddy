@@ -41,6 +41,22 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
           Divider(),
           ListTile(
+            title: Text('Notifications Settings'),
+            leading: Icon(Icons.notifications),
+            onTap: () {
+              //logic
+            },
+          ),
+          Divider(),
+          ListTile(
+            title: Text('Help and Support'),
+            leading: Icon(Icons.help),
+            onTap: () {
+              //logic
+            },
+          ),
+          Divider(),
+          ListTile(
               title: Text("Delete Account"),
               leading: Icon(Icons.delete),
               onTap: () {
