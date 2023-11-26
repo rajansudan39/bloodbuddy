@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bloodbuddy/pages/RegisterPage.dart';
+import 'package:bloodbuddy/pages/sign_up_page.dart';
 import 'package:bloodbuddy/pages/login_page.dart';
 
 class LoginOrRegisterPage extends StatefulWidget {

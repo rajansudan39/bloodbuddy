@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:bloodbuddy/pages/donation_screen.dart';
+import 'package:bloodbuddy/pages/emergency_screen.dart';
 import 'package:bloodbuddy/service/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,6 +11,7 @@ import 'package:bloodbuddy/models/campaign.dart';
 import 'package:bloodbuddy/pages/campaigns_card.dart';
 import 'package:bloodbuddy/pages/profile_page.dart';
 import 'package:bloodbuddy/pages/settingsPage.dart';
+import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -240,7 +243,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(height: 25),
-
           //search bar
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -261,16 +263,38 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 25.0),
 
           //horizontal list view -> categories: blood , hospital , blood bank etc.
-          Container(
+          SizedBox(
             height: 80,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                const CategoryCard(
-                    icon: Icons.bloodtype_outlined, categoryName: "Donate"),
-                const CategoryCard(
-                  icon: Icons.medical_services,
-                  categoryName: "Hospital",
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      PageTransition(
+                        child: const DonationScreen(),
+                        type: PageTransitionType.rightToLeft,
+                      ),
+                    );
+                  },
+                  child: const CategoryCard(
+                    icon: Icons.bloodtype_outlined,
+                    categoryName: "Donate",
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      PageTransition(
+                        child: const EmergencyScreen(),
+                        type: PageTransitionType.rightToLeft,
+                      ),
+                    );
+                  },
+                  child: const CategoryCard(
+                    icon: Icons.medical_services,
+                    categoryName: "Emergency",
+                  ),
                 ),
                 // CategoryCard(
                 //   image: Image.asset("assets/images/sperms.png",
@@ -314,21 +338,20 @@ class _HomePageState extends State<HomePage> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     final campaigns = snapshot.data!;
-                    print(campaigns.length);
                     return ListView(
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       children: List.generate(
                         campaigns.length,
                         (index) => CampaignCards(
-                          image: campaigns[index].image,
-                          rating: getRating().toString(),
-                          name: campaigns[index].name,
+                          campaign: campaigns[index],
                         ),
                       ),
                     );
                   } else {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
                   }
                 }),
           ),
@@ -339,9 +362,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
-
-int getRating() {
-  //Return random float number between 3 and 5
-  return Random().nextInt(3) + 3;
 }

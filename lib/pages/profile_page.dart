@@ -40,11 +40,11 @@ class _ProfilePageState extends State<ProfilePage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   child: CircleAvatar(
                     backgroundColor: Colors.deepPurple[100],
                     radius: 50,
-                    child: Icon(
+                    child: const Icon(
                       Icons.person,
                       size: 60,
                       color: Colors.white,

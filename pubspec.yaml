@@ -40,6 +40,8 @@ dependencies:
   csc_picker: ^0.2.7
   lottie: ^2.7.0
   cloud_firestore: ^4.13.0
+  page_transition: ^2.1.0
+  cached_network_image: ^3.3.0
 
 dev_dependencies:
   flutter_test:
