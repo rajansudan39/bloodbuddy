@@ -31,7 +31,9 @@ class Database {
         .toList();
   }
 
-  Future registerCampaign(Campaign campaign) async {
+  Future registerCampaign(
+    Campaign campaign,
+  ) async {
     String uid = FirebaseAuth.instance.currentUser!.uid;
     await campaignCollection
         .doc(campaign.id)

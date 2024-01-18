@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:bloodbuddy/models/campaign.dart';
-import 'package:bloodbuddy/pages/campaign_registration_page.dart';
+import 'package:bloodbuddy/pages/campaign_details_page.dart';
 import 'package:flutter/material.dart';
 
 class CampaignCards extends StatelessWidget {
@@ -21,7 +21,7 @@ class CampaignCards extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => CampaignRegistrationPage(
+              builder: (context) => CampaignDetailsPage(
                 campaign: campaign,
               ),
             ),

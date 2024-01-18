@@ -1,5 +1,4 @@
 import 'package:bloodbuddy/models/blood_bank.dart';
-import 'package:bloodbuddy/models/emergency.dart';
 import 'package:bloodbuddy/service/database.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +26,7 @@ class _DonationScreenState extends State<DonationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Blood Banks"),
+        title: const Text("Blood Banks"),
       ),
       body: ListView(
         children: [
